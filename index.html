@@ -1,0 +1,72 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Rent Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Room Rent Calculator</h1>
+        <form id="calculator-form">
+            <label for="month">Select Month:</label>
+            <select id="month" name="month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+
+            <label for="month-rent">Month Rent:</label>
+            <input type="number" id="month-rent" name="month-rent" required>
+
+            <h2>Electric Bill Details</h2>
+            <label for="first-meter-reading">First Meter Reading:</label>
+            <input type="number" id="first-meter-reading" name="first-meter-reading" required>
+
+            <label for="second-meter-reading">Second Meter Reading:</label>
+            <input type="number" id="second-meter-reading" name="second-meter-reading" required>
+
+            <label for="per-unit-price">Per Unit Price:</label>
+            <input type="number" id="per-unit-price" name="per-unit-price" required>
+
+            <button id="calculate-btn">Calculate Bill</button>
+        </form>
+
+        <div id="bill-details" style="display: none;">
+            <h2>Bill Details</h2>
+            <p id="total-units"></p>
+            <p id="electric-bill"></p>
+            <p id="total-month-rent"></p>
+            <p id="total-bill"></p>
+            <button id="share-btn">Share on Email</button>
+            <div id="bill-summary">
+                <h3>Bill Summary for <span id="month-summary"></span></h3>
+                <p>Month Rent: <span id="month-rent-summary"></span></p>
+                <p>Total Units: <span id="total-units-summary"></span></p>
+                <p>Electric Bill: <span id="electric-bill-summary"></span></p>
+                <p>Total Bill: <span id="total-bill-summary"></span></p>
+            </div>
+        </div>
+
+        <div id="email-form" style="display: none;">
+            <label for="email">Enter Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button id="send-email-btn">Send Email</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

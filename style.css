@@ -1,57 +1,201 @@
-/* style.css */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start for better flow with history */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Add some padding to the body */
 }
 
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 600px;
     margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3 {
+    color: #343a40; /* Darker text for headings */
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    color: #495057; /* Slightly lighter text for labels */
+    font-weight: 500;
 }
 
 input[type="number"],
+input[type="email"],
 select {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
+    width: calc(100% - 20px); /* Adjust for padding */
+    height: 45px;
+    margin-bottom: 25px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 8px;
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 16px;
+    color: #495057;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light blue shadow on focus */
+    outline: none;
 }
 
 button {
     width: 100%;
-    height: 40px;
-    background-color: #4CAF50;
+    height: 48px;
+    background-color: #007bff; /* Primary blue button */
     color: #fff;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Add margin for spacing between buttons */
 }
 
 button:hover {
-    background-color: #3e8e41;
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.share-options { /* Renamed from .share-buttons */
+    margin-top: 20px; /* Space above share buttons */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+}
+
+button#download-image-btn {
+    background-color: #6f42c1; /* Purple for download button */
+}
+
+button#download-image-btn:hover {
+    background-color: #5d34a4;
+}
+
+button#share-btn-email {
+    background-color: #28a745; /* Green for email button */
+}
+
+button#share-btn-email:hover {
+    background-color: #218838;
+}
+
+button#share-btn-whatsapp {
+    background-color: #25D366; /* WhatsApp green */
+}
+
+button#share-btn-whatsapp:hover {
+    background-color: #1DA851;
+}
+
+button#share-btn-telegram {
+    background-color: #0088CC; /* Telegram blue */
+}
+
+button#share-btn-telegram:hover {
+    background-color: #006AA7;
+}
+
+button#send-email-btn {
+    background-color: #6c757d; /* Gray for send email button */
+}
+
+button#send-email-btn:hover {
+    background-color: #5a6268;
 }
 
 #bill-details {
     margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ced4da; /* Dashed separator */
 }
 
-#bill-summary {
-    background-color: #f9f9f9;
+#bill-details p {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+#email-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ced4da;
+}
+
+#bill-history {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ced4da;
+}
+
+#bill-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.bill-item {
+    background-color: #f8f9fa;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #e2e6ea;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.bill-item:hover {
+    transform: translateY(-3px);
+}
+
+.bill-item h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.bill-item p {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #495057;
+}
+
+.bill-item p strong {
+    color: #343a40;
 }

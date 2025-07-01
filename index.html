@@ -1,5 +1,3 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Rent Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -45,25 +44,29 @@
         </form>
 
         <div id="bill-details" style="display: none;">
-            <h2>Bill Details</h2>
-            <p id="total-units"></p>
-            <p id="electric-bill"></p>
-            <p id="total-month-rent"></p>
-            <p id="total-bill"></p>
-            <button id="share-btn">Share on Email</button>
-            <div id="bill-summary">
-                <h3>Bill Summary for <span id="month-summary"></span></h3>
-                <p>Month Rent: <span id="month-rent-summary"></span></p>
-                <p>Total Units: <span id="total-units-summary"></span></p>
-                <p>Electric Bill: <span id="electric-bill-summary"></span></p>
-                <p>Total Bill: <span id="total-bill-summary"></span></p>
+            <h2>Current Month Bill Details</h2>
+            <p id="total-units">Total Units: </p>
+            <p id="electric-bill">Electric Bill: </p>
+            <p id="total-month-rent">Month Rent: </p>
+            <p id="total-bill">Total Bill: </p>
+            <div class="share-options">
+                <button id="download-image-btn">Download Bill Image</button>
+                <button id="share-btn-email">Share via Email</button>
+                <button id="share-btn-whatsapp">Share via WhatsApp</button>
+                <button id="share-btn-telegram">Share via Telegram</button>
             </div>
         </div>
 
         <div id="email-form" style="display: none;">
-            <label for="email">Enter Email:</label>
-            <input type="email" id="email" name="email" required>
-            <button id="send-email-btn">Send Email</button>
+            <label for="email">Enter Recipient Email (for instructions):</label>
+            <input type="email" id="email" name="email">
+            <button id="send-email-btn">Get Email Instructions</button>
+        </div>
+
+        <div id="bill-history" style="display: none;">
+            <h2>Bill History</h2>
+            <ul id="bill-list">
+                </ul>
         </div>
     </div>
 
